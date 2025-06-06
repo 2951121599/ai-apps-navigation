@@ -27,70 +27,20 @@ def generate_html(csv_filepath, html_filepath):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 应用导航</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        nav {
-            background-color: #f4f4f4;
-            width: 200px;
-            padding: 1rem;
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            overflow-y: auto;
-        }
-        nav h2 {
-            margin-top: 0;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        nav ul li {
-            margin-bottom: 0.5rem;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-            display: block;
-            padding: 0.5rem;
-            border-radius: 4px;
-        }
-        nav ul li a:hover {
-            background-color: #ddd;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            margin-top: auto;
-        }
-    </style>
 </head>
 <body>
     <header>
         <h1>AI 应用导航</h1>
     </header>
-    <nav>
-        <h2>目录</h2>
-        <ul class="sidebar">
-"""
-
-    # Add categories to sidebar
-    sorted_categories = sorted(categories.keys())
-    for category_name in sorted_categories:
-        category_id = category_name.lower().replace(' ', '-').replace('/', '-').replace('&', '-').replace('(', '').replace(')', '')
-        html_content += f'            <li><a href="#category-{category_id}">{category_name}</a></li>\n'
-
-    html_content += """
-        </ul>
-    </nav>
     <main>
 """
 
     # Add categories and applications to HTML
+    sorted_categories = sorted(categories.keys())
+
     for category_name in sorted_categories:
         apps_in_category = categories[category_name]
+        # Create a URL-friendly ID for the category
         category_id = category_name.lower().replace(' ', '-').replace('/', '-').replace('&', '-').replace('(', '').replace(')', '')
         html_content += f'        <section class="category-section" id="category-{category_id}">\n'
         html_content += f'            <h2>{category_name}</h2>\n'
@@ -104,6 +54,7 @@ def generate_html(csv_filepath, html_filepath):
             html_content += '                <div class="app-card">\n'
             html_content += f'                    <h3><a href="{website}" target="_blank">{name}</a></h3>\n'
             html_content += f'                    <p class="description">{description}</p>\n'
+            # Tags are omitted as per todo.md
             html_content += '                </div>\n'
         html_content += '            </div>\n'
         html_content += '        </section>\n'
@@ -127,3 +78,4 @@ if __name__ == '__main__':
     csv_file = 'site.csv'
     html_file = 'index.html'
     generate_html(csv_file, html_file)
+
