@@ -14,6 +14,7 @@ Mermaid,4-网页产品,https://mermaid.live/,将llm生成的Mermaid语法渲染�
 Manus,3-Agent,https://manus.im/app,"执行型助手（多写文档少聊天）
 送300每日刷新（3个任务左右）+1000固定积分"
 扣子（空间）,3-Agent,https://space.coze.cn/,md生成高级网页（提供给它详细的markdown方案）
+agent-qa,3-Agent,https://vostride.com,vostride 的自然语言 Web、Android 和 iOS 测试智能体，支持 memidex 持久记忆和经验证的自我改进。
 Poe（Claude3）,6-客户端产品,,"代码绘图能力很强
 每天可免费蹭一些额度"
 Ima,6-客户端产品,,微信公众号知识库搜索
